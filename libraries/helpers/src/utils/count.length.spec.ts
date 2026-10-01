@@ -33,9 +33,20 @@ describe('textSlicer', () => {
     expect(textSlicer('x', 280, 'short')).toEqual({ start: 0, end: 280 });
   });
 
-  // twitter-text's validRangeEnd is inclusive, so callers slicing with it
-  // drop the last character that would still fit.
-  it('returns the last valid index when the text is too long for x', () => {
-    expect(textSlicer('x', 5, 'a'.repeat(10))).toEqual({ start: 0, end: 4 });
+  it('cuts after the last character that fits when the text is too long for x', () => {
+    const text = 'a'.repeat(10);
+    const { start, end } = textSlicer('x', 5, text);
+    expect(text.slice(start, end)).toBe('aaaaa');
+  });
+
+  it('never splits an emoji when cutting for x', () => {
+    const text = 'a😀😀😀';
+    const { start, end } = textSlicer('x', 5, text);
+    expect(text.slice(start, end)).toBe('a😀😀');
+  });
+
+  it('keeps an empty text empty on x', () => {
+    const { start, end } = textSlicer('x', 5, '');
+    expect(''.slice(start, end)).toBe('');
   });
 });

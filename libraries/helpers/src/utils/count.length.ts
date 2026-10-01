@@ -30,7 +30,8 @@ export const textSlicer = (
 
   return {
     start: 0,
-    end: valid ? end : validRangeEnd,
+    // validRangeEnd is inclusive, callers use end as an exclusive slice end
+    end: valid ? end : validRangeEnd + 1,
   };
 };
 

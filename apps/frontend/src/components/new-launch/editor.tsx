@@ -360,7 +360,7 @@ export const EditorWrapper: FC<{
   return (
     <div
       className={clsx(
-        'relative flex-col gap-[20px] flex-1',
+        'relative flex-col gap-[20px] flex-1 mobile:min-w-0',
         (items.length === 1 || !canEdit || !comments) && 'flex',
         ((!canEdit && !isCreateSet) || !comments) &&
           'bg-newSettings rounded-[12px]'
@@ -419,7 +419,7 @@ export const EditorWrapper: FC<{
         <div
           key={g.id}
           className={clsx(
-            'relative flex flex-col gap-[20px] flex-1 bg-newSettings',
+            'relative flex flex-col gap-[20px] flex-1 bg-newSettings mobile:min-w-0',
             index === 0 && 'rounded-t-[12px]',
             (index === items.length - 1 || !comments) && 'rounded-b-[12px]',
             !canEdit && !isCreateSet && 'blur-s',
@@ -694,7 +694,7 @@ export const Editor: FC<{
   }
 
   return (
-    <div className="flex flex-col gap-[20px] flex-1">
+    <div className="flex flex-col gap-[20px] flex-1 mobile:min-w-0">
       <div
         className={clsx(
           'relative flex-1 px-[12px] pt-[12px] pb-[12px] flex flex-col',

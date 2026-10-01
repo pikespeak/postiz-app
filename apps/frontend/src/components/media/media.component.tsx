@@ -825,7 +825,7 @@ export const MultiMediaComponent: FC<{
             </ReactSortable>
           )}
         </div>
-        <div className="flex gap-[8px] px-[12px] border-t border-newColColor w-full b1 text-textColor">
+        <div className="flex gap-[8px] px-[12px] border-t border-newColColor w-full b1 text-textColor mobile:flex-wrap">
           {!mediaNotAvailable && (
             <div className="flex py-[10px] b2 items-center gap-[4px]">
               <div
@@ -866,7 +866,7 @@ export const MultiMediaComponent: FC<{
             </div>
           )}
           {!mediaNotAvailable && (
-            <div className="text-newColColor h-full flex items-center">
+            <div className="text-newColColor h-full flex items-center mobile:hidden">
               <VerticalDividerIcon />
             </div>
           )}

@@ -483,16 +483,19 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
   );
 
   return (
-    <div className="w-full h-full flex-1 p-[40px] flex relative">
+    <div className="w-full h-full flex-1 p-[40px] mobile:p-[8px] mobile:h-auto mobile:min-h-full flex relative">
       <div className="flex flex-1 bg-newBgColorInner rounded-[20px] flex-col">
-        <div className="flex-1 flex">
-          <div className="flex flex-col flex-1 border-e border-newBorder">
-            <div className="bg-newBgColor h-[65px] rounded-s-[20px] !rounded-b-[0] flex items-center gap-[12px] px-[20px] text-[20px] font-[600]">
+        <div className="flex-1 flex mobile:flex-col">
+          <div className="flex flex-col flex-1 border-e border-newBorder mobile:border-e-0">
+            <div className="bg-newBgColor h-[65px] rounded-s-[20px] !rounded-b-[0] mobile:rounded-t-[20px] flex items-center gap-[12px] px-[20px] text-[20px] font-[600]">
               {t('create_post_title', 'Create Post')}
               <CreationMethodBadge
                 creationMethod={existingData?.posts?.[0]?.creationMethod}
                 size="sm"
               />
+              <div className="hidden mobile:flex flex-1 justify-end cursor-pointer">
+                <CloseIcon onClick={askClose} className="text-[#A3A3A3]" />
+              </div>
             </div>
             <div className="flex-1 flex flex-col gap-[16px]">
               <div
@@ -500,7 +503,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
               >
                 <div
                   id="social-content"
-                  className="gap-[32px] flex flex-col pe-[8px] pt-[20px] ps-[20px] absolute top-0 left-0 w-full h-full overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-newColColor scrollbar-track-newBgColorInner"
+                  className="gap-[32px] flex flex-col pe-[8px] pt-[20px] ps-[20px] absolute top-0 left-0 w-full h-full overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-newColColor scrollbar-track-newBgColorInner mobile:static mobile:h-auto mobile:overflow-visible mobile:pb-[20px] mobile:pe-[20px]"
                 >
                   <div className="flex w-full">
                     <div className="flex flex-1">
@@ -576,25 +579,25 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
               </div>
             </div>
           </div>
-          <div className="w-[580px] flex flex-col">
-            <div className="bg-newBgColor h-[65px] rounded-e-[20px] !rounded-b-[0] flex items-center px-[20px] text-[20px] font-[600]">
+          <div className="w-[580px] flex flex-col mobile:w-full mobile:min-h-[300px]">
+            <div className="bg-newBgColor h-[65px] rounded-e-[20px] !rounded-b-[0] mobile:rounded-none flex items-center px-[20px] text-[20px] font-[600]">
               <div className="flex-1">{t('post_preview', 'Post Preview')}</div>
-              <div className="cursor-pointer">
+              <div className="cursor-pointer mobile:hidden">
                 <CloseIcon onClick={askClose} className="text-[#A3A3A3]" />
               </div>
             </div>
             <div className="flex-1 relative">
               <Scrollable
                 scrollClasses="!pe-[20px]"
-                className="absolute top-0 p-[20px] pe-[8px] left-0 w-full h-full overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-newColColor scrollbar-track-newBgColorInner"
+                className="absolute top-0 p-[20px] pe-[8px] left-0 w-full h-full overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-newColColor scrollbar-track-newBgColorInner mobile:static mobile:h-auto mobile:overflow-visible mobile:pe-[20px]"
               >
                 <ShowAllProviders ref={ref} />
               </Scrollable>
             </div>
           </div>
         </div>
-        <div className="select-none h-[84px] py-[20px] border-t border-newBorder flex items-center">
-          <div className="flex-1 flex ps-[20px] gap-[8px]">
+        <div className="select-none h-[84px] py-[20px] border-t border-newBorder flex items-center mobile:h-auto mobile:flex-col mobile:items-stretch mobile:gap-[12px] mobile:pt-[12px] mobile:pb-[80px]">
+          <div className="flex-1 flex ps-[20px] gap-[8px] mobile:flex-wrap mobile:px-[12px]">
             {!dummy && (
               <TagsComponent
                 name="tags"
@@ -610,7 +613,7 @@ export const ManageModal: FC<AddEditModalProps> = (props) => {
               <RepeatComponent repeat={repeater} onChange={setRepeater} />
             )}
           </div>
-          <div className="pe-[20px] flex items-center justify-end gap-[8px]">
+          <div className="pe-[20px] flex items-center justify-end gap-[8px] mobile:flex-wrap mobile:px-[12px]">
             {existingData?.integration && (
               <button
                 onClick={deletePost}

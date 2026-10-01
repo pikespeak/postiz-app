@@ -199,7 +199,7 @@ export const Component: FC<{
               className={clsx(
                 !modal.removeLayout &&
                   'gap-[40px] p-[32px] mobile:gap-[24px] mobile:p-[20px]',
-                'bg-newBgColorInner mx-auto flex flex-col w-fit max-w-full rounded-[24px] relative',
+                'bg-newBgColorInner mx-auto flex flex-col w-fit mobile:max-w-full rounded-[24px] relative',
                 modal.size ? '' : 'min-w-[600px] mobile:min-w-0 mobile:w-full',
                 modal.fullScreen && 'h-full'
               )}

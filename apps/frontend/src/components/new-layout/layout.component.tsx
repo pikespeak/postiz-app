@@ -116,7 +116,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                         className={clsx(
                           'fixed h-full w-[64px] start-[17px] flex flex-1 top-0',
                           'mobile:top-auto mobile:bottom-0 mobile:start-0 mobile:w-full mobile:h-[72px] mobile:z-[100] mobile:bg-newBgColorInner mobile:border-t mobile:border-newBgLineColor',
-                          user?.admin && 'pt-[60px] max-h-[1000px]:w-[500px]'
+                          user?.admin && 'pt-[60px] max-h-[1000px]:w-[500px] mobile:pt-0'
                         )}
                       >
                         <div className="flex flex-col h-full gap-[32px] flex-1 py-[12px] mobile:flex-row mobile:gap-0 mobile:p-[4px] mobile:overflow-x-auto">

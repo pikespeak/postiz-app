@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "types": ["jest", "node"]
+  },
+  "include": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
